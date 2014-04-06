@@ -1,8 +1,8 @@
 ---
-chdir: /data/srv/asflash
+chdir: /data/srv/herbs
 environment: production
 address: 0.0.0.0
-port: 5700
+port: 5850
 timeout: 30
 log: log/thin.log
 pid: tmp/pids/thin.pid
@@ -12,3 +12,4 @@ require: []
 wait: 30
 servers: 1
 daemonize: true
+tag: herbs
