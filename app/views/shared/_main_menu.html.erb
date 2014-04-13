@@ -22,7 +22,7 @@
 </div>
 <% unless @page %>
     <ul class="nav nav-pills">
-        <% Section.find_by_name('herbs').children.each do |section| %>
+        <% Section.find_by_name('herbs').children.order('weight').each do |section| %>
             <% if defined?(@section) && section.id == @section.id %>
                 <li class="active"><a href="<%= section_path section %>"><%= section.title %></a></li>
             <% else %>
