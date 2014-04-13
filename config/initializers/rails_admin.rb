@@ -142,6 +142,33 @@ RailsAdmin.config do |config|
   #     # using `field` instead of `configure` will exclude all other fields and force the ordering
   # end
 
+  # TYPES
+  # belongs_to_association
+  # boolean
+  # string
+  # bson_object_id
+  # datetime
+  # date
+  # decimal
+  # enum
+  # file_upload
+  # paperclip
+  # dragonfly
+  # carrierwave
+  # float
+  # has_many_association
+  # has_and_belongs_to_many_association
+  # has_one_association
+  # integer
+  # password
+  # polymorphic_association
+  # hidden
+  # text
+  # serialized
+  # time
+  # timestamp
+  # color
+
   RailsAdmin.config do |config|
     config.models.each do |m|
       m.edit do
@@ -157,11 +184,6 @@ RailsAdmin.config do |config|
       end
     end
     config.model TextPage do
-      exclude_fields do |field_name|
-        field_name.name.to_s.end_with? '_en'
-      end
-    end
-    config.model Product do
       exclude_fields do |field_name|
         field_name.name.to_s.end_with? '_en'
       end

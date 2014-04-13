@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140406120853) do
+ActiveRecord::Schema.define(:version => 20140413150828) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,11 +47,18 @@ ActiveRecord::Schema.define(:version => 20140406120853) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "product_costs", :force => true do |t|
+    t.integer  "cost"
+    t.integer  "amount"
+    t.integer  "weight",     :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string  "name"
     t.string  "title_en"
     t.string  "title_ru"
-    t.integer "cost"
     t.text    "description_en"
     t.text    "description_ru"
     t.integer "section_id"
@@ -60,6 +67,9 @@ ActiveRecord::Schema.define(:version => 20140406120853) do
     t.integer "image_3_id"
     t.integer "image_4_id"
     t.integer "image_5_id"
+    t.integer "cost_1_id",      :null => false
+    t.integer "cost_2_id"
+    t.integer "cost_3_id"
   end
 
   add_index "products", ["name"], :name => "index_products_on_name", :unique => true

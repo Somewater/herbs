@@ -40,3 +40,4 @@ gem "devise", "2.1"
 gem 'traco', '1.1.0'
 gem 'ferret', :platform => :ruby
 gem 'acts_as_ferret', '>= 0.5', :platform => :ruby
+gem 'unidecoder'

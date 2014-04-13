@@ -5,6 +5,9 @@
     <div class="caption">
         <h3><%= @product.title %></h3>
         <strong><%= @product.description %></strong>
-        <p><%= @product.cost.to_i %> руб.</p>
+        <p></p>
+        <% @product.costs.each do |cost| %>
+            <p><%= cost.cost %> руб. / <%= cost.amount %> г.</p>
+        <% end %>
     </div>
 </div>
