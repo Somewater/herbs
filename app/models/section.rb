@@ -13,6 +13,13 @@ class Section < ActiveRecord::Base
   has_many :text_pages
   has_many :products
 
+  rails_admin do
+    object_label_method :hierarchy_name
+    exclude_fields do |field_name|
+      field_name.name.to_s.end_with? '_en'
+    end
+  end
+
   #validates :parent, :presence =>  { :unless => :main? }, :if => :not_infinity_loop?
   class SectinsValidator < ActiveModel::Validator
     def validate(record)

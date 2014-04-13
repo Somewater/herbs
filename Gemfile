@@ -24,7 +24,7 @@ group :development do
 end
 
 gem 'rails_admin', "0.4.9"
-gem "ckeditor"
+gem "ckeditor", '~> 3.7'
 gem "paperclip", "3.4.2"
 gem 'dynamic_sitemaps', "1.0.5"
 
