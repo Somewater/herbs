@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: utf8
   reconnect: true
-  database: herbs_development
+  database: herbs
   pool: 5
   username: herbs
   password: hd03J8glsJnmDl4DFD
@@ -20,7 +20,7 @@ production:
   adapter: postgresql
   encoding: utf8
   reconnect: true
-  database: herbs_production
+  database: herbs
   pool: 5
   username: herbs
   password: hd03J8glsJnmDl4DFD
