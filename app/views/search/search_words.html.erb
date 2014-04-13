@@ -1,11 +1,11 @@
-<div class="row">
+<div class="span12">
     <form action="/search" class="navbar-search">
         <input name="wordsline" type="text" placeholder="<%= I18n.t('search.site_search') %>" class="search-query span10" value="<%= @query %>">
         <input type="submit" value="<%= I18n.t('search.button') %>" onclick="this.form.searchline.focus();" />
     </form>
 </div>
 <p></p>
-<div class="row">
+<div class="span12">
     <ol>
         <% @results.each_with_index do |result, index| %>
             <li>

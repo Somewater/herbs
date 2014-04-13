@@ -8,23 +8,24 @@
 </head>
 <body>
 <div class="container">
-    <% unless notice.blank? %>
-        <div class="alert alert-success">
-            <a class="close" data-dismiss="alert">?</a>
-            <span><%= notice %></span>
-        </div>
-    <% end %>
-
-    <% unless alert.blank? %>
-        <div class="alert alert-danger">
-            <a class="close" data-dismiss="alert">?</a>
-            <span><%= alert %></span>
-        </div>
-    <% end %>
-
     <div id="page" class="row">
         <div class="span12">
             <%= render 'shared/main_menu' %>
+        </div>
+        <div class="span12">
+        <% unless notice.blank? %>
+            <div class="alert alert-success">
+                <a class="close" data-dismiss="alert">?</a>
+                <span><%= notice %></span>
+            </div>
+        <% end %>
+
+        <% unless alert.blank? %>
+            <div class="alert alert-danger">
+                <a class="close" data-dismiss="alert">?</a>
+                <span><%= alert %></span>
+            </div>
+        <% end %>
         </div>
         <div class="span12">
             <%= yield %>

@@ -43,6 +43,8 @@ class SearchController < ApplicationController
         @path = case(@model)
                   when TextPage
                     @controller.text_page_path(@model)
+                  when Product
+                    @controller.product_path(@model)
                   else
                   '/'
                 end
@@ -55,6 +57,8 @@ class SearchController < ApplicationController
         @type = case(@model)
                   when TextPage
                    'search.types.pages'
+                  when Product
+                    'search.types.product'
                   else
                     'Undefined'
                 end
