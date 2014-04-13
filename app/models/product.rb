@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
   belongs_to :cost_2, :class_name => 'ProductCost', :foreign_key => :cost_2_id, :dependent => :destroy
   belongs_to :cost_3, :class_name => 'ProductCost', :foreign_key => :cost_3_id, :dependent => :destroy
 
-  validates :name, :cost, presence: true
+  validates :name, :cost, :section, presence: true
 
   attr_accessible :section_id, :image_1_id, :image_2_id, :image_3_id, :image_4_id, :image_5_id, :name, :title_ru,
                   :description_ru, :cost_1_id, :cost_2_id, :cost_3_id
