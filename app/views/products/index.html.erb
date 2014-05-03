@@ -2,17 +2,24 @@
     <ul class="thumbnails">
         <% @products.each do |product| %>
             <li class="span4">
-                <a href="<%= product_path product %>">
-                    <div class="thumbnail">
-                        <% if product.image %>
+                <div class="thumbnail">
+                    <% if product.image %>
+                        <a href="<%= product_path product %>">
                             <img src="<%= product.image.url %>">
-                        <% end %>
-                        <div class="caption">
+                        </a>
+                    <% end %>
+                    <div class="caption">
+                        <a href="<%= product_path product %>">
                             <h3><%= product.title %></h3>
-                            <p><%= product.cost.cost %> руб. / <%= product.cost.amount %> г.</p>
-                        </div>
+                        </a>
+                        <p>
+                            <%= product.cost.cost %> руб. / <%= product.cost.amount %> г.
+                            <button type="button" class="btn btn-info basket-btn pull-right"
+                                    data-action="add" data-product-id="<%= product.id %>"
+                                    data-cost-id="<%= product.cost.id %>">В корзину</button>
+                        </p>
                     </div>
-                </a>
+                </div>
             </li>
         <% end %>
     </ul>

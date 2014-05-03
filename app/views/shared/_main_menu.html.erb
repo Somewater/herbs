@@ -17,6 +17,7 @@
                     <% end %>
                 <% end %>
             <% end %>
+            <li id="basket-menu-item" <%= Basket.present?(session) ? 'class="alert-info"'.html_safe : '' %>><a href="<%= basket_show_path %>">Корзина</a></li>
         </ul>
         <form action="/search" class="navbar-search pull-right">
             <input name="words" type="text" placeholder="Поиск..." class="search-query span2" value="<%= defined?(@query) ? @query : '' %>">

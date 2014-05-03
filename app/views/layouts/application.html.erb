@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    <%= render 'shared/dynamic_javascript' %>
+  </script>
 </head>
 <body>
 <div class="container">
@@ -27,7 +30,7 @@
             </div>
         <% end %>
         </div>
-        <div class="span12">
+        <div id="content" class="span12">
             <%= yield %>
         </div>
         <div class="span12 well" style="margin-top: 50px;">

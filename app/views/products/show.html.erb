@@ -7,7 +7,12 @@
         <strong><%= @product.description %></strong>
         <p></p>
         <% @product.costs.each do |cost| %>
-            <p><%= cost.cost %> руб. / <%= cost.amount %> г.</p>
+            <p>
+                <%= cost.cost %> руб. / <%= cost.amount %> г.
+                <button type="button" class="btn btn-info basket-btn"
+                        data-action="add" data-product-id="<%= @product.id %>"
+                        data-cost-id="<%= cost.id %>">В корзину</button>
+            </p>
         <% end %>
     </div>
 </div>

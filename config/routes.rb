@@ -7,6 +7,13 @@ Herbs::Application.routes.draw do
     resources :products, :only => [:show, :index]
     resources :sections, :only => [:show]
     resources :text_pages, :only => [:show], :path => "pages"
+    scope 'basket' do
+      match 'add' => 'basket#add', :as => 'basket_add'
+      match 'remove' => 'basket#remove', :as => 'basket_remove'
+      match 'clear' => 'basket#clear', :as => 'basket_clear'
+      match 'show' => 'basket#show', :as => 'basket_show'
+      match 'apply' => 'basket#apply', :as => 'basket_apply'
+    end
     match 'sitemap.xml' => 'sitemaps#sitemap'
     match "search/(:page)", :to => 'search#search_words'
     match "sitemap", :to => 'sitemap#index', :as => 'sitemap'

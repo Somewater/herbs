@@ -33,3 +33,5 @@ ru:
         breadcrumb: Сохранить БД
         database_dump: Загрузить копию базы данных
   sitemap: Карта сайта
+  basket:
+    order_assepted: Ваш заказ принят
