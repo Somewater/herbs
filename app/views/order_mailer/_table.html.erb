@@ -1,0 +1,33 @@
+<%
+   number = 0
+%>
+<table border="1" cellpading="0" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Наименование товара</th>
+            <th>Вес, грамм</th>
+            <th>Количество, шт.</th>
+            <th>Стоимость 1 шт., руб</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% order.materialize.each do |product, costs| %>
+            <% costs.each do |cost, entry| %>
+                <tr>
+                    <td><%= number += 1; number %></td>
+                    <td><%= product.title %></td>
+                    <td><%= cost.amount || '-' %></td>
+                    <td><%= entry.quantity || '-' %></td>
+                    <td><%= cost.cost || '-' %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+    <thead>
+        <tr>
+            <th colspan="3" style="text-align: left;">ИТОГО</th>
+            <th colspan="2"><%= order.full_cost %> руб.</th>
+        </tr>
+    </thead>
+</table>

@@ -56,6 +56,16 @@ class Basket
     Hash[p_map]
   end
 
+  def create_order(customer, params = {})
+    order = Order.create!(params.merge(customer: customer))
+    @basket.each do |product_id, costs|
+      costs.each do |cost_id, quantity|
+        order.order_entries.create!(product_cost_id: cost_id, quantity: quantity)
+      end
+    end
+    order
+  end
+
   def self.present?(session)
     JSON.load(session[BASKET]).present?
   end

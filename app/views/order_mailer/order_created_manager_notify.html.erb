@@ -1,0 +1,42 @@
+<h3><%= t('email.order_created_mgr_title', number: @order.id, full_cost: @order.full_cost) %></h3>
+<div>
+    <p>Создан заказ №<b><%= @order.id %></b>, <%= @order.created_at.to_formatted_s(:db) %></p>
+    <p>Детали заказа:</p>
+    <%= render partial: 'table', locals: {order: @order} %>
+    <p>Информация о покупателе:</p>
+    <table border="1" cellpading="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <th>Имя</th>
+                <td><%= @order.customer.name %></td>
+            </tr>
+            <tr>
+                <th>Телефон</th>
+                <td><%= @order.customer.phone %></td>
+            </tr>
+            <tr>
+                <th>Почта</th>
+                <td><%= @order.customer.email %></td>
+            </tr>
+            <tr>
+                <th>Адрес доставки</th>
+                <td><%= @order.address %></td>
+            </tr>
+            <tr>
+                <th>Комментарий к заказу</th>
+                <td><%= @order.comment || '-' %></td>
+            </tr>
+            <tr>
+                <th>Всего заказов от покупателя</th>
+                <td><%= @order.customer.orders.count %></td>
+            </tr>
+            <tr>
+                <th>Покупатель зарегистрирован</th>
+                <td><%= @order.customer.created_at.to_formatted_s(:db) %></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>С уважением,</p>
+    <p>администрация сайта <a href="http://lektravy.com">lektravy.com</a></p>
+</div>

@@ -1,0 +1,37 @@
+<% @readonly = defined?(readonly) && readonly %>
+<div class="span12">
+    <% if basket.empty? %>
+        <p>Ваша корзина пуста</p>
+    <% else %>
+        <p>Ваша корзина</p>
+        <ul>
+        <% basket.materialize.each do |product, costs| %>
+            <li><%= product.title %>
+                <ol>
+                    <% costs.each do |cost, quantity| %>
+                        <li><%= cost.amount %> г., <%= cost.cost %> р., <%= quantity %> шт.
+                            <% unless @readonly %>
+                                <button type="button" class="btn btn-info basket-btn"
+                                        data-action="add" data-product-id="<%= product.id %>"
+                                        data-cost-id="<%= cost.id %>" data-render="true">+</button>
+                                <button type="button" class="btn btn-danger basket-btn"
+                                        data-action="remove" data-product-id="<%= product.id %>"
+                                        data-cost-id="<%= cost.id %>" data-render="true">-</button>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ol>
+            </li>
+        <% end %>
+        </ul>
+        <% unless @readonly %>
+            <a href="<%= basket_register_path %>">
+                <button type="button" class="btn basket-btn btn-info">Оформить заказ</button>
+            </a>
+            <a href="<%= basket_clear_path %>">
+                <button type="button" class="btn basket-btn btn-danger"
+                        data-action="clear">Очистить корзину</button>
+            </a>
+        <% end %>
+    <% end %>
+</div>

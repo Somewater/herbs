@@ -35,3 +35,7 @@ ru:
   sitemap: Карта сайта
   basket:
     order_assepted: Ваш заказ принят
+    basket_empty_error: Корзина пуста
+  email:
+    order_created_title: Ваш заказ успешно создан!
+    order_created_mgr_title: 'Создан заказ №%{number} на %{full_cost} руб.'

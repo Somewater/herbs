@@ -3,6 +3,8 @@ class BasketController < ApplicationController
   attr_reader :basket
   before_filter :create_basket
 
+  include ApplicationHelper
+
   def add
     basket.add(params[:product_id].to_i, params[:cost_id].to_i, params[:quantity].to_i)
     render_response
@@ -28,11 +30,33 @@ class BasketController < ApplicationController
     end
   end
 
+  def register
+  end
+
   def apply
-    flash.notice = t('basket.order_assepted')
-    # todo: save order
+    begin
+      raise t('basket.basket_empty_error') if basket.empty?
+      customer = Customer.where(['lower(email) = ?', params[:email].to_s.downcase]).first
+      if customer
+        customer.name = params[:name] #if params[:name].present?
+        customer.phone = params[:phone] #if params[:phone].present?
+        customer.save! if customer.changed?
+      else
+        customer = Customer.create!(name: params[:name], phone: params[:phone]){|c| c.email = params[:email].to_s.downcase }
+      end
+
+      order = basket.create_order(customer, address: params[:address], comment: params[:comment])
+    rescue
+      alert = $!.to_s
+      alert = to_russian_errors($!.record.errors) if $!.is_a? ActiveRecord::RecordInvalid
+      flash.alert = alert
+      render :register
+      return
+    end
+
+    OrderMailer.order_created_manager_notify(order).deliver
+    OrderMailer.order_created_customer_notify(order).deliver
     basket.clear
-    render :show
   end
 
   private

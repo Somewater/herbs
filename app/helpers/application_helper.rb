@@ -1,4 +1,9 @@
+# encoding: utf-8
+
 module ApplicationHelper
+
+  FIELD_TO_RUSSIAN_NAME = {name: 'Имя', phone: 'Телефон', email: 'Email', address: 'Адрес'}
+
   def each_with_borders(array, &block)
     last_index = array.size - 1
     index = 0
@@ -37,5 +42,10 @@ module ApplicationHelper
       result << "</ul>"
     end
     result
+  end
+
+  def to_russian_errors(errors)
+    "Возникли ошибки: " <<
+      errors.messages.map{|field, msgs| "#{FIELD_TO_RUSSIAN_NAME[field.to_sym]} #{msgs.join(', ')}" }.join(', ')
   end
 end

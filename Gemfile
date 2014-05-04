@@ -21,6 +21,7 @@ end
 
 group :development do
   gem 'pry'
+  gem "letter_opener"
 end
 
 gem 'rails_admin', "0.4.9"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140413150828) do
+ActiveRecord::Schema.define(:version => 20140504105059) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -46,6 +46,34 @@ ActiveRecord::Schema.define(:version => 20140413150828) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "order_entries", :force => true do |t|
+    t.integer  "order_id",                       :null => false
+    t.integer  "product_cost_id",                :null => false
+    t.integer  "quantity",        :default => 1
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "order_entries", ["order_id"], :name => "index_order_entries_on_order_id"
+
+  create_table "orders", :force => true do |t|
+    t.integer  "customer_id", :null => false
+    t.text     "address"
+    t.text     "comment"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "orders", ["customer_id"], :name => "index_orders_on_customer_id"
 
   create_table "product_costs", :force => true do |t|
     t.integer  "cost"

@@ -13,6 +13,8 @@ Herbs::Application.routes.draw do
       match 'clear' => 'basket#clear', :as => 'basket_clear'
       match 'show' => 'basket#show', :as => 'basket_show'
       match 'apply' => 'basket#apply', :as => 'basket_apply'
+      match 'register' => 'basket#register', :as => 'basket_register'
+      root :to => 'basket#show'
     end
     match 'sitemap.xml' => 'sitemaps#sitemap'
     match "search/(:page)", :to => 'search#search_words'

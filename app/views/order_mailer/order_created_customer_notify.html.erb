@@ -1,0 +1,10 @@
+<h3><%= t('email.order_created_title') %></h3>
+<div>
+    <p>Менеджер свяжется с Вами в ближайшее время для уточнения деталей заказа.</p>
+    <p>Заказу присвоен номер <b><%= @order.id %></b></p>
+    <p>Детали вашего заказа:</p>
+    <%= render partial: 'table', locals: {order: @order} %>
+    <p>&nbsp;</p>
+    <p>С уважением,</p>
+    <p>администрация сайта <a href="http://lektravy.com">lektravy.com</a></p>
+</div>

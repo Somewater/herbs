@@ -18,6 +18,8 @@ class Product < ActiveRecord::Base
   attr_accessible :section_id, :image_1_id, :image_2_id, :image_3_id, :image_4_id, :image_5_id, :name, :title_ru,
                   :description_ru, :cost_1_id, :cost_2_id, :cost_3_id
 
+  scope :by_costs, ->(ids) { where('cost_1_id IN (?) OR cost_2_id IN (?) OR cost_3_id IN (?)', ids, ids, ids) }
+
   rails_admin do
     exclude_fields do |field_name|
       field_name.name.to_s.end_with? '_en'
@@ -65,6 +67,11 @@ class Product < ActiveRecord::Base
 
   before_validation() do
     self.name = self.title.to_s.to_ascii.parameterize unless self.name.present?
+  end
+
+  def include_cost?(cost)
+    cost = cost.id if cost.is_a?(ActiveRecord::Base)
+    cost && (cost_1_id == cost || cost_2_id == cost || cost_3_id == cost)
   end
 
 end

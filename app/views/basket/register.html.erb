@@ -1,0 +1,37 @@
+<%= render 'basket/form', readonly: true, basket: @basket  %>
+<div><p></p></div>
+<div class="span12">
+    <%= form_tag(basket_apply_path, {method: :post, class: 'form-horizontal'}) do |f| %>
+        <div class="form-group">
+            <label for="name" class="control-label">Ваше имя&nbsp;</label>
+            <input type="text" class="form-control" name="name" value="<%= params[:name] %>">
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label for="email" class="control-label">Email&nbsp;</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" value="<%= params[:email] %>">
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label for="phone" class="control-label">Телефон&nbsp;</label>
+            <input type="tel" class="form-control" name="phone" placeholder="+7 (_ _ _) _ _ _  __ __" value="<%= params[:phone] %>">
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label for="address" class="control-label">Адрес доставки&nbsp;</label>
+            <textarea name="address" class="form-control"><%= params[:address] %></textarea>
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label for="comment" class="control-label">Комментарий к заказу&nbsp;</label>
+            <textarea name="comment" class="form-control"><%= params[:comment] %></textarea>
+        </div>
+        <p></p>
+        <div class="form-group">
+            <input class="btn btn-info" type="submit" value="Отправить заказ менеджеру">
+            <a href="<%= basket_show_path %>">
+                <button type="button" class="btn basket-btn">Назад</button>
+            </a>
+        </div>
+    <% end %>
+</div>
