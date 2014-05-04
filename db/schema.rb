@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140504105059) do
+ActiveRecord::Schema.define(:version => 20140504174024) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140504105059) do
     t.integer  "quantity",        :default => 1
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.integer  "product_id",                     :null => false
   end
 
   add_index "order_entries", ["order_id"], :name => "index_order_entries_on_order_id"

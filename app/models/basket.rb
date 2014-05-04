@@ -60,7 +60,7 @@ class Basket
     order = Order.create!(params.merge(customer: customer))
     @basket.each do |product_id, costs|
       costs.each do |cost_id, quantity|
-        order.order_entries.create!(product_cost_id: cost_id, quantity: quantity)
+        order.order_entries.create!(product_cost_id: cost_id, product_id: product_id, quantity: quantity)
       end
     end
     order

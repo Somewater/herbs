@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
   def materialize
     entries = self.order_entries.preload(:product_cost).to_a
     costs = entries.map{|e| e.product_cost}.uniq
-    products = Product.by_costs(costs.map(&:id).uniq)
+    products = entries.map{|e| e.product}.uniq
     products.inject({}) do |hash, product|
       hash[product] = costs.select{|cost| product.include_cost? cost }.inject({}) do |costs_hash, cost|
         costs_hash[cost] = entries.find{|entry| entry.product_cost_id == cost.id }
