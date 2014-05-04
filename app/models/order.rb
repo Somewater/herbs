@@ -20,8 +20,10 @@ class Order < ActiveRecord::Base
     costs = entries.map{|e| e.product_cost}.uniq
     products = entries.map{|e| e.product}.uniq
     products.inject({}) do |hash, product|
-      hash[product] = costs.select{|cost| product.include_cost? cost }.inject({}) do |costs_hash, cost|
-        costs_hash[cost] = entries.find{|entry| entry.product_cost_id == cost.id }
+      entries_by_product = entries.select{|entry| entry.product_id == product.id }
+      hash[product] = costs.select{|cost| product.include_cost?(cost) && entries_by_product.index{|e| e.product_cost_id == cost.id } }.
+          inject({}) do |costs_hash, cost|
+        costs_hash[cost] = entries_by_product.find{|entry| entry.product_cost_id == cost.id }
         costs_hash
       end
       hash
