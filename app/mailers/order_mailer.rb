@@ -1,5 +1,6 @@
 class OrderMailer < ActionMailer::Base
   MANAGER_EMAIL = "zakaz@lektravy.com"
+  MANAGERS = ["mktsz@mail.ru", "temporaryvkmail@gmail.com"]
   default from: MANAGER_EMAIL
 
   def order_created_customer_notify(order)
@@ -9,6 +10,6 @@ class OrderMailer < ActionMailer::Base
 
   def order_created_manager_notify(order)
     @order = order
-    mail to: MANAGER_EMAIL, subject: t('email.order_created_mgr_title', number: order.id, full_cost: order.full_cost)
+    mail to: MANAGERS, subject: t('email.order_created_mgr_title', number: order.id, full_cost: order.full_cost)
   end
 end
