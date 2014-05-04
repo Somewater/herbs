@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   def full_cost
     full = 0.0
     order_entries.preload(:product_cost).each do |entry|
-      full += entry.cost.cost
+      full += entry.cost.cost * entry.quantity
     end
     full.to_i
   end
