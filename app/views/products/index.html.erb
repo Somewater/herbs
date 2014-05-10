@@ -12,6 +12,9 @@
                         <a href="<%= product_path product %>">
                             <h3><%= product.title %></h3>
                         </a>
+                        <div>
+                            <%= product.short_description %>
+                        </div>
                         <p>
                             <%= product.cost.cost %> руб. / <%= product.cost.amount %> г.
                             <button type="button" class="btn btn-info basket-btn pull-right"

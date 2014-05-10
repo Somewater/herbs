@@ -4,7 +4,8 @@
     <% end %>
     <div class="caption">
         <h3><%= @product.title %></h3>
-        <strong><%= @product.description %></strong>
+        <div><%= @product.short_description %></div>
+        <strong><%= @product.description.html_safe %></strong>
         <p></p>
         <% @product.costs.each do |cost| %>
             <p>

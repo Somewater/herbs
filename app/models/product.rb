@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
   validates :name, :cost, :section, presence: true
 
   attr_accessible :section_id, :image_1_id, :image_2_id, :image_3_id, :image_4_id, :image_5_id, :name, :title_ru,
-                  :description_ru, :cost_1_id, :cost_2_id, :cost_3_id
+                  :description_ru, :cost_1_id, :cost_2_id, :cost_3_id, :short_description_ru
 
   scope :by_costs, ->(ids) { where('cost_1_id IN (?) OR cost_2_id IN (?) OR cost_3_id IN (?)', ids, ids, ids) }
 
@@ -28,8 +28,11 @@ class Product < ActiveRecord::Base
       group :default do
         field :name
         field :title_ru
-        field :description_ru do
+        field :short_description_ru do
           ckeditor false
+        end
+        field :description_ru do
+          ckeditor true
         end
         field :section do
           associated_collection_scope do
@@ -55,7 +58,7 @@ class Product < ActiveRecord::Base
   end
 
   extend ::I18nColumns::Model
-  i18n_columns :title, :description
+  i18n_columns :title, :description, :short_description
 
   def costs
     [cost, cost_2, cost_3].compact

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140504174024) do
+ActiveRecord::Schema.define(:version => 20140510125618) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20140504174024) do
     t.integer "cost_1_id",      :null => false
     t.integer "cost_2_id"
     t.integer "cost_3_id"
+    t.text    "short_description_ru"
+    t.text    "short_description_en"
   end
 
   add_index "products", ["name"], :name => "index_products_on_name", :unique => true
