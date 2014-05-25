@@ -12,8 +12,15 @@ class Setting < ActiveRecord::Base
   end
 
   rails_admin do
-    edit do
+    create do
+      field :key
+      field :value
+      field :description
+    end
+
+    update do
       field :key do
+        read_only true
       end
       field :value
       field :description
