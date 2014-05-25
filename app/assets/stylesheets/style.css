@@ -424,7 +424,7 @@ footer {
     margin-bottom: 25px;
 }
 .app_info {
-    background-color: rgba(256,256,256,0.5);
+    background-color: rgba(255,255,255,0.5);
 }
 .app_info form {
     overflow: hidden;
@@ -542,7 +542,7 @@ footer {
     width: 185px;
     height: 58px;
     bottom: 3px;
-    background-color: rgba(256,256,256,0.65);
+    background-color: rgba(255,255,255,0.65);
     font: 14px Arial;
     color: #0E3441;
     padding: 13px 3px 13px 4px;
@@ -621,7 +621,7 @@ footer {
     margin-bottom: 14px;
 }
 .product_head p {
-    background-color: rgba(256,256,256,0.5);
+    background-color: rgba(255,255,255,0.5);
     color: #0E3441;
     font: 16px/40px Arial;
     text-indent: 20px;
