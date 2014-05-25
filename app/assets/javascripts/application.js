@@ -11,5 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require ./jquery
-//= require ./bootstrap/bootstrap
+//= require ./modernizr-2.6.2.min
 //= require basket
+//= require scripts
+//= require_self

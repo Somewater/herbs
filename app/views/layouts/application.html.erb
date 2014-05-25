@@ -3,7 +3,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Main</title>
-		<link href="css/style.css" type="text/css" rel="stylesheet">
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <script type="text/javascript">
+            <%= render 'shared/dynamic_javascript' %>
+        </script>
         <!--[if gte IE 9]>
         <style type="text/css">
             .gradient {
@@ -11,9 +16,6 @@
             }
         </style>
         <![endif]-->
-		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
-		<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -47,41 +49,22 @@
                     </nav>
                     <a href="" class="basket"><img src="images/basket2.png" alt=""/>Корзина</a>
 				</div>
-				<div id="content" class="center_place">
-                    <div class="bgcontent"></div>
-                    <div class="container"></div>
-                    <ul class="category_list">
-                        <li><a href="category.html">Лечебные сборы</a></li>
-                        <li><a href="">Лечебные бальзамы, алфиты</a></li>
-                        <li><a href="">Лекарственные травы</a></li>
-                        <li><a href="">Диетические продукты</a></li>
-                        <li><a href="">Чаи на травах</a></li>
-                        <li><a href="">Прочая продукция</a></li>
-                    </ul>
-                    <div class="price">
-                        <a href=""><img src="images/price.png" alt="Прайс"/></a>
-                        <a href="">Скачать прайс</a>
-                        <a href="">Интересны оптовые закупки?</a>
-                    </div>
-				</div>
-                <div class="teas">
-                    <div class="center_place">
-                        <div class="tea_slider">
-                            <img class="l_point" src="images/left_point.png" alt=""/>
-                            <div id="caruselWindow">
-                                <ul>
-                                    <li><a href=""><img src="images/tea01.jpg" alt=""/>Чай с облепихой <br>240 р. / 100 гр.</a></li>
-                                    <li><a href=""><img src="images/tea02.jpg" alt=""/>Набор трав «Витаминный» <br>462 руб. / 100 гр.</a></li>
-                                    <li><a href=""><img src="images/tea03.jpg" alt=""/>Чай ягодно-травяной <br>320 руб. / 100 гр.</a></li>
-                                    <li><a href=""><img src="images/tea04.jpg" alt=""/>Набор трав «Микс 17» <br>438 руб. / 100 гр.</a></li>
-                                    <li><a href=""><img src="images/tea05.jpg" alt=""/>Ягодный микс «Витаминный» <br>120 руб. / 100 гр.</a></li>
-                                    <li><a href=""><img src="images/tea03.jpg" alt=""/>Чай ягодно-травяной <br>320 руб. / 100 гр.</a></li>
-                                </ul>
-                            </div>
-                            <img class="r_point" src="images/right_point.png" alt=""/>
+                <div>
+                    <% unless notice.blank? %>
+                        <div class="alert alert-success">
+                            <a class="close" data-dismiss="alert">?</a>
+                            <span><%= notice %></span>
                         </div>
-                    </div>
+                    <% end %>
+
+                    <% unless alert.blank? %>
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert">?</a>
+                            <span><%= alert %></span>
+                        </div>
+                    <% end %>
                 </div>
+                <%= yield %>
                 <div class="center_place our_help">
                     <ul>
                         <li><a href="">Помощь</a></li>

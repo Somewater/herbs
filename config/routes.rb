@@ -20,7 +20,7 @@ Herbs::Application.routes.draw do
     match "search/(:page)", :to => 'search#search_words'
     match "sitemap", :to => 'sitemap#index', :as => 'sitemap'
   
-    root :to => 'products#index'
+    root :to => 'main_page#index'
     match 'not_found' => 'main_page#not_found', :as => 'not_found'
     match '*paths' => 'main_page#not_found'
   #end
