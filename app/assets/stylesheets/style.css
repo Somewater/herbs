@@ -65,7 +65,7 @@ h3 {
     font: 12px/27px Arial;
 }
 #main {
-    background: #EFEFEF url(images/concrete.jpg) 0 0;
+    background: #EFEFEF url(/assets/images/concrete.jpg) 0 0;
     position: relative;
     padding-top: 47px;
 }
@@ -132,7 +132,7 @@ h3 {
     width: 17px;
     height: 17px;
     border: none;
-    background: #fff url("images/srch.png") 0 0 no-repeat;
+    background: #fff url("/assets/images/srch.png") 0 0 no-repeat;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -163,7 +163,7 @@ h3 {
     top:-8px;
 }
 #content {
-    background-image: url("images/bg_menu2.jpg");
+    background-image: url("/assets/images/bg_menu2.jpg");
     background-repeat: no-repeat;
     height: 461px;
     margin-bottom: 27px;
@@ -180,7 +180,7 @@ h3 {
     height: 461px;
     width: 275px;
     position: absolute;
-    background: transparent url("images/opacity_bg.png") -1px 0 no-repeat;
+    background: transparent url("/assets/images/opacity_bg.png") -1px 0 no-repeat;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -280,7 +280,7 @@ h3 {
     line-height: 55px;
 }
 footer {
-    background: #EFEFEF url(images/concrete.jpg) 0 0;
+    background: #EFEFEF url(/assets/images/concrete.jpg) 0 0;
     padding: 56px 0 28px 0;
 }
 .bg_footer {
@@ -321,7 +321,7 @@ footer {
 
 
 .bgcontent {
-    background-image: url("images/bg_menu1.jpg");
+    background-image: url("/assets/images/bg_menu1.jpg");
     width: 960px;
     height: 461px;
     position: absolute;
@@ -392,7 +392,7 @@ footer {
     background-color: #87BADF;
 }
 .header .head_info {
-    background:transparent url("images/clouds.jpg") 0 0 no-repeat;
+    background:transparent url("/assets/images/clouds.jpg") 0 0 no-repeat;
 }
 .no_bg {
     background: transparent !important;
@@ -401,7 +401,7 @@ footer {
 }
 .categories {
     width: 273px;
-    background-image: url("images/bg_menu1.jpg");
+    background-image: url("/assets/images/bg_menu1.jpg");
     background-repeat: no-repeat;
     height: 461px;
     float: left;
@@ -417,7 +417,7 @@ footer {
     float: right;
 }
 .medical_collection article {
-    background: transparent url("images/bg_menu1.jpg") 100% 0 no-repeat;
+    background: transparent url("/assets/images/bg_menu1.jpg") 100% 0 no-repeat;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -471,7 +471,7 @@ footer {
 }
 .styled-select select {
     border: none;
-    background:#fff url("images/select.png") no-repeat 139px 7px;
+    background:#fff url("/assets/images/select.png") no-repeat 139px 7px;
     padding-left: 8px;
     color: #0E3441;
     font: 14px Arial;
@@ -614,7 +614,7 @@ footer {
     width: 659px;
 }
 .product_head {
-    background: url("images/bg_menu1.jpg")100% 0 no-repeat;
+    background: url("/assets/images/bg_menu1.jpg")100% 0 no-repeat;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;

@@ -25,13 +25,13 @@ $(document).ready(function(){
         e.preventDefault();
         $('.app_info p').animate({'height':'0'},timeApp,function(){
             $('.app_info p').css('display','none')
-            $('.buttn').attr('src','images/log_vee.png')
+            $('.buttn').attr('src','/assets/images/log_vee.png')
         });
     },function(ee){
         ee.preventDefault();
         $('.app_info p').css('display','inline-block')
         $('.app_info p').animate({'height':p_height},timeApp,function(){
-            $('.buttn').attr('src','images/log_wedge.png')
+            $('.buttn').attr('src','/assets/images/log_wedge.png')
         });
     })
 
@@ -50,12 +50,12 @@ $(document).ready(function(){
                 .css('background-image',adress)
         })
     }
-    var image1 = 'url(images/bg_menu1.jpg)';
-    var image2 = 'url(images/bg_menu2.jpg)';
-    var image3 = 'url(images/bg_menu3.jpg)';
-    var image4 = 'url(images/bg_menu4.jpg)';
-    var image5 = 'url(images/bg_menu5.jpg)';
-    var image6 = 'url(images/bg_menu6.jpg)';
+    var image1 = 'url(/assets/images/bg_menu1.jpg)';
+    var image2 = 'url(/assets/images/bg_menu2.jpg)';
+    var image3 = 'url(/assets/images/bg_menu3.jpg)';
+    var image4 = 'url(/assets/images/bg_menu4.jpg)';
+    var image5 = 'url(/assets/images/bg_menu5.jpg)';
+    var image6 = 'url(/assets/images/bg_menu6.jpg)';
     var animfirst = function(){
         setTimeout(function(){bg_disapp(image3)},timeInterval)
         setTimeout(function(){bg_app(image4)},2*timeInterval+timeFade)
