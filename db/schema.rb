@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140510125618) do
+ActiveRecord::Schema.define(:version => 20140525124151) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(:version => 20140510125618) do
     t.integer "image_3_id"
     t.integer "image_4_id"
     t.integer "image_5_id"
-    t.integer "cost_1_id",      :null => false
+    t.integer "cost_1_id",            :null => false
     t.integer "cost_2_id"
     t.integer "cost_3_id"
     t.text    "short_description_ru"
@@ -130,6 +130,16 @@ ActiveRecord::Schema.define(:version => 20140510125618) do
   end
 
   add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true
+
+  create_table "settings", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "settings", ["key"], :name => "index_settings_on_key", :unique => true
 
   create_table "text_pages", :force => true do |t|
     t.string   "name"

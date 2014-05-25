@@ -1,0 +1,10 @@
+phones:
+  phone1:
+    desc: Телефон 1
+    value: 8 (495) 642-22-92
+  phone2:
+    desc: Телефон 2
+    value: +7 (925) 642-22-92
+  fitolog_phone:
+    desc: Телефон фитолога
+    value: +7 (916) 455-62-43
