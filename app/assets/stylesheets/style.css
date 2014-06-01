@@ -716,3 +716,9 @@ footer {
 .product_content ul li {
     list-style-type: decimal;
 }
+
+/* MY */
+
+.logo_title h1 { font: 27px/26px Arial; }
+.logo_title h2 { font: 21px/30px Arial; }
+.logo_title h3 { font: 16px/28px Arial; }
