@@ -163,7 +163,6 @@ h3 {
     top:-8px;
 }
 #content {
-    background-image: url("/assets/images/bg_menu2.jpg");
     background-repeat: no-repeat;
     height: 461px;
     margin-bottom: 27px;
@@ -320,8 +319,12 @@ footer {
 
 
 
-.bgcontent {
-    background-image: url("/assets/images/bg_menu1.jpg");
+#bgcontent1 {
+    width: 960px;
+    height: 461px;
+    position: absolute;
+}
+#bgcontent2 {
     width: 960px;
     height: 461px;
     position: absolute;
@@ -370,7 +373,7 @@ footer {
 #caruselWindow ul {
     overflow: hidden;
     display: inline-block;
-    width: 1032px;
+    width: 10032px;
 }
 #caruselWindow ul li {
     float: left;

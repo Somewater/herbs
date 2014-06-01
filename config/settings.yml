@@ -8,3 +8,12 @@ phones:
   fitolog_phone:
     desc: Телефон фитолога
     value: +7 (916) 455-62-43
+social_nets:
+  odnoklasskini:
+    group:
+  vkontakte:
+    group:
+  facebook:
+    group:
+  twitter:
+    group:

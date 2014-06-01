@@ -38,16 +38,16 @@
 				<div class="navigation center_place">
                     <nav class="main_menu">
                         <ul>
-                            <li><a href="">Главная</a></li>
-                            <li><img src="/assets/images/v_string.png" alt=""/><a href="">О нас</a></li>
-                            <li><img src="/assets/images/v_string.png" alt=""/><a href="">Контакты</a></li>
+                            <li><a href="/">Главная</a></li>
+                            <li><img src="/assets/images/v_string.png" alt=""/><a href="<%= text_page_path :about %>">О нас</a></li>
+                            <li><img src="/assets/images/v_string.png" alt=""/><a href="<%= text_page_path :contacts %>">Контакты</a></li>
                         </ul>
-                        <form action="#">
-                            <input type="text" placeholder="Поиск"/>
+                        <form action="/search">
+                            <input name="words" type="text" placeholder="Поиск" value="<%= defined?(@query) ? @query : '' %>">
                             <input type="submit" value=""/>
                         </form>
                     </nav>
-                    <a href="" class="basket"><img src="/assets/images/basket2.png" alt=""/>Корзина</a>
+                    <a href="<%= basket_show_path %>" class="basket"><img src="/assets/images/basket2.png" alt=""/>Корзина</a>
 				</div>
                 <div>
                     <% unless notice.blank? %>
@@ -67,16 +67,16 @@
                 <%= yield %>
                 <div class="center_place our_help">
                     <ul>
-                        <li><a href="">Помощь</a></li>
-                        <li><img src="/assets/images/v_string.png" alt=""/><a href="">Доставка из России за рубеж</a></li>
+                        <li><a href="<%= text_page_path :help %>">Помощь</a></li>
+                        <li><img src="/assets/images/v_string.png" alt=""/><a href="<%= text_page_path :delivery %>">Доставка из России за рубеж</a></li>
                     </ul>
                     <div class="s_web">
                         <span>Мы в соцсетях</span>
                         <div>
-                            <a href=""><img src="/assets/images/ico1.png" alt=""/></a>
-                            <a href=""><img src="/assets/images/ico2.png" alt=""/></a>
-                            <a href=""><img src="/assets/images/ico3.png" alt=""/></a>
-                            <a href=""><img src="/assets/images/ico4.png" alt=""/></a>
+                            <a href="<%= Setting['social_nets.odnoklasskini.group'] || '#' %>"><img src="/assets/images/ico1.png" alt=""/></a>
+                            <a href="<%= Setting['social_nets.vkontakte.group'] || '#' %>"><img src="/assets/images/ico2.png" alt=""/></a>
+                            <a href="<%= Setting['social_nets.facebook.group'] || '#' %>"><img src="/assets/images/ico3.png" alt=""/></a>
+                            <a href="<%= Setting['social_nets.twitter.group'] || '#' %>"><img src="/assets/images/ico4.png" alt=""/></a>
                         </div>
                     </div>
                 </div>

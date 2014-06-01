@@ -1,21 +1,26 @@
 $(document).ready(function(){
 
 // Карусель
+    if ($('#caruselWindow ul li').size() <= 5) {
+        $('.r_point').hide()
+        $('.l_point').hide()
+    } else {
     var timeSlide = 300;                            // время листания слайда
-    $('.r_point').click(function(){
-        $('#caruselWindow ul')
-            .animate({'marginLeft':'-172px'},timeSlide,function(){
-                var x = $('#caruselWindow ul li:first');
-                $('#caruselWindow ul').append(x).css('marginLeft','0');
-            })
-    })
+        $('.r_point').click(function(){
+            $('#caruselWindow ul')
+                .animate({'marginLeft':'-172px'},timeSlide,function(){
+                    var x = $('#caruselWindow ul li:first');
+                    $('#caruselWindow ul').append(x).css('marginLeft','0');
+                })
+        })
 
-    $('.l_point').click(function(){
-        var x = $('#caruselWindow ul li:last');
-        $('#caruselWindow ul').prepend(x).css('marginLeft','-172px');
-        $('#caruselWindow ul')
-            .animate({'marginLeft':'0'},timeSlide)
-    })
+        $('.l_point').click(function(){
+            var x = $('#caruselWindow ul li:last');
+            $('#caruselWindow ul').prepend(x).css('marginLeft','-172px');
+            $('#caruselWindow ul')
+                .animate({'marginLeft':'0'},timeSlide)
+        })
+    }
 
 
 // Разворачивание меню
@@ -39,36 +44,28 @@ $(document).ready(function(){
 // Смена фона
     var timeInterval = 4000;        // промежуток между слайдами
     var timeFade = 2000;            // время слайда
-    function bg_app(adress){
-        $('.bgcontent').animate({'opacity':'1'},timeFade,function(){
-            $('#content').css('background-image',adress)
-        })
+    function bg_app(adress, anim, holder_id){
+        console.log(new Date().getSeconds() + " Appear " + adress)
+        $('#bgcontent' + holder_id).css({'opacity':'0', 'background-image':'url("' + adress + '")'}).animate({'opacity':'1'},timeFade)
     }
-    function bg_disapp(adress){
-        $('.bgcontent').animate({'opacity':'0'},timeFade,function(){
-            $('.bgcontent')
-                .css('background-image',adress)
-        })
+    function bg_disapp(adress, holder_id){
+        console.log(new Date().getSeconds() + " Disappear " + adress)
+        $('#bgcontent' + holder_id).css({'opacity':'1', 'background-image':'url("' + adress + '")'}).animate({'opacity':'0'},timeFade)
     }
-    var image1 = 'url(/assets/images/bg_menu1.jpg)';
-    var image2 = 'url(/assets/images/bg_menu2.jpg)';
-    var image3 = 'url(/assets/images/bg_menu3.jpg)';
-    var image4 = 'url(/assets/images/bg_menu4.jpg)';
-    var image5 = 'url(/assets/images/bg_menu5.jpg)';
-    var image6 = 'url(/assets/images/bg_menu6.jpg)';
-    var animfirst = function(){
-        setTimeout(function(){bg_disapp(image3)},timeInterval)
-        setTimeout(function(){bg_app(image4)},2*timeInterval+timeFade)
-        setTimeout(function(){bg_disapp(image5)},3*timeInterval+2*timeFade)
-        setTimeout(function(){bg_app(image6)},4*timeInterval+3*timeFade)
-        setTimeout(function(){bg_disapp(image1)},5*timeInterval+4*timeFade)
-        setTimeout(function(){bg_app(image1)},6*timeInterval+5*timeFade)
+    var bg_images = Herbs.main_page_pictures;
+    var cur_image = -1;
+    var cur_holder_id = -1
+    var bg_anim = function() {
+        var anim = cur_image != -1
+        cur_holder_id += 1
+        var holder_id = (cur_holder_id % 2) + 1
+        cur_image += 1
+        var img = bg_images[cur_image % bg_images.length]
+        bg_app(img, anim, holder_id);
+        setTimeout(function(){bg_disapp(img, holder_id)},timeInterval + timeFade);
     }
-    var animcycle = function(){
-        setInterval(animfirst,5*timeInterval+5*timeFade)
+    if (bg_images.length > 0) {
+        setInterval(bg_anim,timeInterval + timeFade)
+        bg_anim()
     }
-    setTimeout(animfirst,0)
-    setTimeout(animcycle,0)
-
-
 })

@@ -48,4 +48,8 @@ module ApplicationHelper
     "Возникли ошибки: " <<
       errors.messages.map{|field, msgs| "#{FIELD_TO_RUSSIAN_NAME[field.to_sym]} #{msgs.join(', ')}" }.join(', ')
   end
+
+  def price_list_xls_url
+    '/files/price.xls'
+  end
 end

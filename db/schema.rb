@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140525124151) do
+ActiveRecord::Schema.define(:version => 20140601125316) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -96,11 +96,13 @@ ActiveRecord::Schema.define(:version => 20140525124151) do
     t.integer "image_3_id"
     t.integer "image_4_id"
     t.integer "image_5_id"
-    t.integer "cost_1_id",            :null => false
+    t.integer "cost_1_id",                               :null => false
     t.integer "cost_2_id"
     t.integer "cost_3_id"
     t.text    "short_description_ru"
     t.text    "short_description_en"
+    t.boolean "main_page",            :default => false
+    t.integer "priority",             :default => 0
   end
 
   add_index "products", ["name"], :name => "index_products_on_name", :unique => true

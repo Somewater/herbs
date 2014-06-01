@@ -13,6 +13,8 @@ class Section < ActiveRecord::Base
   has_many :text_pages
   has_many :products
 
+  scope :herbs_sections, where(parent_id: Section.where(name: 'herbs').first).order('weight')
+
   rails_admin do
     object_label_method :hierarchy_name
     exclude_fields do |field_name|

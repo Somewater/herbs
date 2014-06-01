@@ -16,9 +16,13 @@ class Product < ActiveRecord::Base
   validates :name, :cost, :section, presence: true
 
   attr_accessible :section_id, :image_1_id, :image_2_id, :image_3_id, :image_4_id, :image_5_id, :name, :title_ru,
-                  :description_ru, :cost_1_id, :cost_2_id, :cost_3_id, :short_description_ru
+                  :description_ru, :cost_1_id, :cost_2_id, :cost_3_id, :short_description_ru, :main_page, :priority
 
   scope :by_costs, ->(ids) { where('cost_1_id IN (?) OR cost_2_id IN (?) OR cost_3_id IN (?)', ids, ids, ids) }
+
+  scope :main_page, where('main_page = TRUE')
+
+  scope :ordered, order('priority DESC')
 
   rails_admin do
     exclude_fields do |field_name|
@@ -39,6 +43,8 @@ class Product < ActiveRecord::Base
             Proc.new { Section.find_by_name('herbs').children }
           end
         end
+        field :main_page
+        field :priority
       end
 
       group :costs do
