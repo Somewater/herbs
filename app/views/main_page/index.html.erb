@@ -19,7 +19,7 @@
             <img class="l_point" src="/assets/images/left_point.png" alt=""/>
             <div id="caruselWindow">
                 <ul>
-                    <% [Product.main_page.ordered.to_a,Product.main_page.ordered.to_a,Product.main_page.ordered.to_a,Product.main_page.ordered.to_a].flatten.each do |product| %>
+                    <% main = Product.main_page.ordered.to_a; scale = [1, (6 / [main.size, 1].max.to_f).ceil].max; [main * scale].flatten.each do |product| %>
                         <li><a href="<%= product_path product %>"><img src="<%= product.image.try(:url) %>" alt=""/><%= product.title %><br><%= product.cost.cost %> р. / <%= product.cost.amount %> гр.</a></li>
                     <% end %>
                 </ul>
