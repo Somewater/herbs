@@ -392,10 +392,9 @@ footer {
 
 
 .header {
-    background-color: #87BADF;
 }
 .header .head_info {
-    background:transparent url("/assets/images/clouds.jpg") 0 0 no-repeat;
+    /*background:transparent url("/assets/images/clouds.jpg") 0 0 no-repeat;*/
 }
 .no_bg {
     background: transparent !important;
