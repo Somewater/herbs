@@ -20,8 +20,15 @@ function add_callback_to_basket_bnts(){
         }
     })
 }
+function init_basket_btn_block(){
+    var block = $('#basket-btn-block')
+    if(block) {
+
+    }
+}
 function render_basket(basket_html){
     $('#basket-show').html(basket_html)
     add_callback_to_basket_bnts()
+    init_basket_btn_block()
 }
 $(add_callback_to_basket_bnts)
