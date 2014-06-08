@@ -4,5 +4,6 @@ Herbs = {
     basket_clear: "<%= basket_clear_path %>",
     basket_show: "<%= basket_show_path %>",
     basket_apply: "<%= basket_apply_path %>",
+    <% if @section %>section_show: "<%= section_path(@section) %>",<% end %>
     main_page_pictures: <%= Ckeditor::MainPagePicture.all.map{|p| p.url }.to_json.html_safe %>
 }

@@ -65,7 +65,7 @@ class BasketController < ApplicationController
   end
 
   def render_response
-    if request[:render]
+    if params[:render].to_s[0] == 't'
       render :show, layout: false
     else
       head :ok

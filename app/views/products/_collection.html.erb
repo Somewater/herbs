@@ -1,0 +1,17 @@
+<ul id="products-collection" class="collection_content">
+    <% @products.each do |product| %>
+        <li>
+            <a href="<%= product_path product %>" class="product">
+                <p class="product_name"><span><%= product.title %></span></p>
+                <img src="<%= product.image.try(:url) %>" alt=""/>
+                <p class="about"><%= product.short_description %></p>
+            </a>
+            <div class="cost">
+                <span><strong><%= product.cost.cost.to_i %> р.</strong> / <%= product.cost.amount.to_i %> гр.</span>
+                <a class="basket-btn" href="#"
+                   data-action="add" data-product-id="<%= product.id %>"
+                   data-cost-id="<%= product.cost.id %>"><img src="/assets/images/basket_mini.png" alt=""/></a>
+            </div>
+        </li>
+    <% end %>
+</ul>

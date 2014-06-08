@@ -1,174 +1,30 @@
-				<div id="content" class="center_place no_bg">
-                    <div class="categories">
-                        <div class="container"></div>
-                        <ul class="category_list">
-                            <li><a href="" class="frst_link">Лечебные сборы</a></li>
-                            <li><a href="">Лечебные бальзамы, алфиты</a></li>
-                            <li><a href="">Лекарственные травы</a></li>
-                            <li><a href="">Диетические продукты</a></li>
-                            <li><a href="">Чаи на травах</a></li>
-                            <li><a href="">Прочая продукция</a></li>
-                        </ul>
-                        <div class="price">
-                            <a href=""><img src="/assets/images/price.png" alt="Прайс"/></a>
-                            <a href="">Скачать прайс</a>
-                            <a href="">Интересны оптовые закупки?</a>
+<div id="content" class="center_place no_bg">
+    <div class="categories">
+        <%= render 'shared/main_menu' %>
+    </div>
+    <div class="medical_collection">
+        <article>
+            <div class="app_info">
+                <form action="#">
+                    <div class="medic_title">
+                        <span><%= @section.title %></span>
+                        <input class="buttn" type="image" src="/assets/images/log_wedge.png" alt="^"/>
+                    </div>
+                    <div class="sort">
+                        <span>Сортировать по</span>
+                        <div class="styled-select">
+                            <select id="price-sort" name="selector">
+                                <option value="desc">Цене на убывание</option>
+                                <option value="asc">Цене на возрастание</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="medical_collection">
-                        <article>
-                            <div class="app_info">
-                                <form action="#">
-                                    <div class="medic_title">
-                                        <span>Лечебные сборы</span>
-                                        <input class="buttn" type="image" src="/assets/images/log_wedge.png" alt="^"/>
-                                    </div>
-                                    <div class="sort">
-                                        <span>Сортировать по</span>
-                                        <div class="styled-select">
-                                            <select name="selector">
-                                                <option value="">Цене на убывание</option>
-                                                <option value="">Цене на возрастание</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
-                                <p>У вас постоянный стресс, депрессия, достали хронические заболевания? Уделите немого времени просмотру сайта и многие ваши проблемы со здоровьем окажутся не такими уж страшными. Лекарственные травы очень часто гораздо лучше самых дорогих лекарств. Отдельные травы и эффективные сборы – рекомендации к применению, состав сборов. Рецепты включают в себя лекарственные растения не признанные в официальной медицине России, но с успехом применяемые многими поколениями травников. Наши родные травы во многих случаях гораздо эффективнее, чем рекламируемые иностранные редкости. Если хоть немного знать о травах, то “сорняк” растущий у вас под ногами, выручит даже в сложной ситуации.</p>
-                            </div>
-                        </article>
-                        <ul class="collection_content">
-                            <li>
-                                <a href="wares.html" class="product">
-                                    <p class="product_name"><span>Девясил высокий корень</span></p>
-                                    <img src="/assets/images/med_001.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Березовые почки</span></p>
-                                    <img src="/assets/images/med_002.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>430 р.</strong> / 250 мл.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Валериана лекарственная корень</span></p>
-                                    <img src="/assets/images/med_003.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Боярышник плоды</span></p>
-                                    <img src="/assets/images/med_004.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Березовые почки</span></p>
-                                    <img src="/assets/images/med_005.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>430 р.</strong> / 250 мл.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Адамов корень</span></p>
-                                    <img src="/assets/images/med_006.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Девясил высокий корень</span></p>
-                                    <img src="/assets/images/med_001.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Березовые почки</span></p>
-                                    <img src="/assets/images/med_002.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>430 р.</strong> / 250 мл.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Валериана лекарственная корень</span></p>
-                                    <img src="/assets/images/med_003.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Девясил высокий корень</span></p>
-                                    <img src="/assets/images/med_001.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Березовые почки</span></p>
-                                    <img src="/assets/images/med_002.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>430 р.</strong> / 250 мл.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="" class="product">
-                                    <p class="product_name"><span>Валериана лекарственная корень</span></p>
-                                    <img src="/assets/images/med_003.jpg" alt=""/>
-                                    <p class="about">Улучшает кровообращение, нормализует пульс, устраняет головные боли, головокружения.</p>
-                                </a>
-                                <div class="cost">
-                                    <span><strong>350 р.</strong> / 100 гр.</span>
-                                    <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-				</div>
+                </form>
+                <% if @section.description.present? %>
+                    <p><%= @section.description %></p>
+                <% end %>
+            </div>
+        </article>
+        <%= render 'products/collection' %>
+    </div>
+</div>

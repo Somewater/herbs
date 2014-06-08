@@ -21,7 +21,7 @@ function add_callback_to_basket_bnts(){
     })
 }
 function render_basket(basket_html){
-    $('#content').html(basket_html)
+    $('#basket-show').html(basket_html)
     add_callback_to_basket_bnts()
 }
 $(add_callback_to_basket_bnts)

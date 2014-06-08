@@ -33,7 +33,7 @@ $(document).ready(function(){
             $('.buttn').attr('src','/assets/images/log_vee.png')
         });
     },function(ee){
-        ee.preventDefault();
+        if(ee) ee.preventDefault();
         $('.app_info p').css('display','inline-block')
         $('.app_info p').animate({'height':p_height},timeApp,function(){
             $('.buttn').attr('src','/assets/images/log_wedge.png')
@@ -45,11 +45,9 @@ $(document).ready(function(){
     var timeInterval = 4000;        // промежуток между слайдами
     var timeFade = 2000;            // время слайда
     function bg_app(adress, anim, holder_id){
-        console.log(new Date().getSeconds() + " Appear " + adress)
         $('#bgcontent' + holder_id).css({'opacity':'0', 'background-image':'url("' + adress + '")'}).animate({'opacity':'1'},timeFade)
     }
     function bg_disapp(adress, holder_id){
-        console.log(new Date().getSeconds() + " Disappear " + adress)
         $('#bgcontent' + holder_id).css({'opacity':'1', 'background-image':'url("' + adress + '")'}).animate({'opacity':'0'},timeFade)
     }
     var bg_images = Herbs.main_page_pictures;

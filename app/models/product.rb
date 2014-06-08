@@ -4,10 +4,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :section
   belongs_to :image, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_1_id
-  belongs_to :image_2, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_2_id
-  belongs_to :image_3, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_3_id
-  belongs_to :image_4, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_4_id
-  belongs_to :image_5, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_5_id
+  belongs_to :image_card, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_card_id
+  belongs_to :image_main_page, :class_name => 'Ckeditor::ProductPicture', :foreign_key => :image_main_page_id
 
   belongs_to :cost, :class_name => 'ProductCost', :foreign_key => :cost_1_id, :dependent => :destroy
   belongs_to :cost_2, :class_name => 'ProductCost', :foreign_key => :cost_2_id, :dependent => :destroy
@@ -15,7 +13,7 @@ class Product < ActiveRecord::Base
 
   validates :name, :cost, :section, presence: true
 
-  attr_accessible :section_id, :image_1_id, :image_2_id, :image_3_id, :image_4_id, :image_5_id, :name, :title_ru,
+  attr_accessible :section_id, :image_1_id, :image_card_id, :image_main_page_id, :name, :title_ru,
                   :description_ru, :cost_1_id, :cost_2_id, :cost_3_id, :short_description_ru, :main_page, :priority
 
   scope :by_costs, ->(ids) { where('cost_1_id IN (?) OR cost_2_id IN (?) OR cost_3_id IN (?)', ids, ids, ids) }
@@ -55,10 +53,8 @@ class Product < ActiveRecord::Base
 
       group :images do
         field :image
-        field :image_2
-        field :image_3
-        field :image_4
-        field :image_5
+        field :image_card
+        field :image_main_page
       end
     end
   end

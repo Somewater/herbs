@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140601125316) do
+ActiveRecord::Schema.define(:version => 20140608172457) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -92,10 +92,6 @@ ActiveRecord::Schema.define(:version => 20140601125316) do
     t.text    "description_ru"
     t.integer "section_id"
     t.integer "image_1_id"
-    t.integer "image_2_id"
-    t.integer "image_3_id"
-    t.integer "image_4_id"
-    t.integer "image_5_id"
     t.integer "cost_1_id",                               :null => false
     t.integer "cost_2_id"
     t.integer "cost_3_id"
@@ -103,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20140601125316) do
     t.text    "short_description_en"
     t.boolean "main_page",            :default => false
     t.integer "priority",             :default => 0
+    t.integer "image_card_id"
+    t.integer "image_main_page_id"
   end
 
   add_index "products", ["name"], :name => "index_products_on_name", :unique => true
@@ -121,14 +119,15 @@ ActiveRecord::Schema.define(:version => 20140601125316) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "sections", :force => true do |t|
-    t.string   "name",                         :null => false
+    t.string   "name",                          :null => false
     t.string   "title_ru"
     t.string   "title_en"
-    t.integer  "weight",     :default => 0
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "visible",    :default => true
-    t.integer  "parent_id",  :default => 0
+    t.integer  "weight",      :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "visible",     :default => true
+    t.integer  "parent_id",   :default => 0
+    t.text     "description"
   end
 
   add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true

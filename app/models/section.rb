@@ -7,7 +7,7 @@ class Section < ActiveRecord::Base
   extend ::I18nColumns::Model
   i18n_columns :title
 
-  attr_accessible :name, :weight, :visible, :parent_id
+  attr_accessible :name, :weight, :visible, :parent_id, :description
   belongs_to :parent, :class_name => 'Section'
   has_many :children, :class_name => 'Section', :foreign_key => 'parent_id', :order => Section::ORDER, :conditions => CONDITIONS
   has_many :text_pages
@@ -19,6 +19,13 @@ class Section < ActiveRecord::Base
     object_label_method :hierarchy_name
     exclude_fields do |field_name|
       field_name.name.to_s.end_with? '_en'
+    end
+    edit do
+      field :name
+      field :weight
+      field :visible
+      field :parent
+      field :description
     end
   end
 
@@ -105,5 +112,9 @@ class Section < ActiveRecord::Base
   def pretty_name
     t = self.title
     t && t.size > 0 ? t : self.name
+  end
+
+  def products_page(page, sort)
+    products.limit(20).offset(page.to_i).preload(:cost).sort_by{|p| sort == 'asc' ? p.cost.cost : -p.cost.cost}
   end
 end
