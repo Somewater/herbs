@@ -1,28 +1,17 @@
 				<div id="content" class="center_place no_bg">
                     <div class="categories">
-                        <div class="container"></div>
-                        <ul class="category_list">
-                            <li><a href="category.html" class="frst_link">Лечебные сборы</a></li>
-                            <li><a href="">Лечебные бальзамы, алфиты</a></li>
-                            <li><a href="">Лекарственные травы</a></li>
-                            <li><a href="">Диетические продукты</a></li>
-                            <li><a href="">Чаи на травах</a></li>
-                            <li><a href="">Прочая продукция</a></li>
-                        </ul>
-                        <div class="price">
-                            <a href=""><img src="/assets/images/price.png" alt="Прайс"/></a>
-                            <a href="">Скачать прайс</a>
-                            <a href="">Интересны оптовые закупки?</a>
-                        </div>
+                        <%= render 'shared/main_menu' %>
                     </div>
                     <section class="product_info">
                         <header class="product_head">
-                            <p>Легкое дыхание</p>
+                            <p><%= @product.title %></p>
                         </header>
                         <div class="product_photo">
-                            <img src="" alt="Фото"/>
+                            <img src="<%= @product.image_card.try(:url) %>" alt="Фото"/>
                             <div class="product_about">
-                                <p>Пару строк о товаре. Пару строк о товаре. Пару строк о товаре. Пару строк о товаре. Пару строк о товаре. Пару строк о товаре.</p>
+                                <% if @product.short_description.present? %>
+                                    <p><%= @product.short_description %></p>
+                                <% end %>
                                 <div class="order">
                                     <form action="#" class="quant">
                                         <input type="text" maxlength="2" value="00"/>
@@ -39,29 +28,7 @@
                             </div>
                         </div>
                         <div class="product_content">
-                            <p>Состав сбора обладает противовоспалительным, разжижающим мокроту, очищающим дыхательные пути, отхаркивающим действием. Входящие в состав травы и корни оказывают успокаивающее кашель, жаропонижающее, противовирусное действие.</p>
-                            <p>Состав:</p>
-                            <ul>
-                                <li>Липа соцветия</li>
-                                <li>Бузина цвет</li>
-                                <li>Коровяк цвет</li>
-                                <li>Мать-и-Мачеха лист</li>
-                                <li>Эвкалипт лист</li>
-                                <li>Подорожник лист</li>
-                                <li>Фиалка трехцветная трава</li>
-                                <li>Чабрец трава</li>
-                                <li>Буквица трава</li>
-                                <li>Душица трава</li>
-                                <li>Первоцвет весенний трава</li>
-                                <li>Медуница трава</li>
-                                <li>Аир корень</li>
-                                <li>Алтей корень</li>
-                                <li>Девясил корень</li>
-                                <li>Солодка корень.</li>
-                            </ul>
-                            <p>Способ приготовления: 1 ст ложка сбора залить 0.5 л кипятка, настоять 1 час,тепло укутав, процедить, пить теплым до еды четыре раза в день, четвертый раз- перед сном.</p>
-                            <p>Пакет 200 г рассчитан на курс 1 месяц, между курсами необходим перерыв 14 дней.</p>
-                            <p>Вскрытый пакет следует пересыпать в стеклянную посуду, закрыть плотной крышкой.</p>
+                            <%= @product.description.to_s.html_safe %>
                         </div>
                     </section>
 				</div>

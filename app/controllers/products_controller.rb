@@ -7,5 +7,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by_name(params[:id]) || Product.find_by_id(params[:id])
+    @section = @product.section
   end
 end
