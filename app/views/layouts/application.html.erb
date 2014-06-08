@@ -19,8 +19,8 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<header class="header">
-				<div class="head_info center_place">
+			<header class="header<%= defined?(@cloud_style) && @cloud_style ? ' cloud-header' : '' %>">
+				<div class="head_info center_place<%= defined?(@cloud_style) && @cloud_style ? ' cloud' : '' %>">
                     <a href="/" class="logo"><img src="/assets/images/logo.png" alt="Сила трав"/></a>
                     <div class="contacts">
                         <p><%= Setting['phones.phone1'] %></p>
