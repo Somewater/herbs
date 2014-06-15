@@ -11,7 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require ./jquery
+//= require ./jquery.mousewheel-3.0.6.pack
 //= require ./modernizr-2.6.2.min
 //= require basket
 //= require scripts
 //= require ./price-selector
+//= require ./jquery.fancybox

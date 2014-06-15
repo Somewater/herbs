@@ -66,4 +66,7 @@ $(document).ready(function(){
         setInterval(bg_anim,timeInterval + timeFade)
         bg_anim()
     }
+
+
+    $(".fancybox").fancybox({helpers: {title : {type : 'float'}}});
 })
