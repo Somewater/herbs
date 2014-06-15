@@ -3,15 +3,26 @@
         <li>
             <a href="<%= product_path product %>" class="product">
                 <p class="product_name"><span><%= product.title %></span></p>
-                <img src="<%= product.image.try(:url) %>" alt=""/>
+                <img width="192" height="192" src="<%= product.image.try(:url) %>" alt=""/>
                 <p class="about"><%= product.short_description %></p>
             </a>
             <div class="cost">
-                <span><strong><%= product.cost.cost.to_i %> р.</strong> / <%= product.cost.amount.to_i %> гр.</span>
+                <span><strong><%= product.cost.try(:cost).to_i %> р.</strong> / <%= product.cost.try(:amount).to_i %> гр.</span>
                 <a class="basket-btn" href="#"
                    data-action="add" data-product-id="<%= product.id %>"
-                   data-cost-id="<%= product.cost.id %>"><img src="/assets/images/basket_mini.png" alt=""/></a>
+                   data-cost-id="<%= product.cost.try(:id) %>"><img src="/assets/images/basket_mini.png" alt=""/></a>
             </div>
         </li>
     <% end %>
 </ul>
+<% if @pages_count > 1 %>
+    <ul class="pager">
+        <% @pages_count.times do |page| %>
+            <% if @page_idx == page %>
+                <li><b><%= page + 1 %></b></li>
+            <% else %>
+                <li><a href="<%= section_path(page: page == 0 ? nil : page) %>"><%= page + 1 %></a></li>
+            <% end %>
+        <% end %>
+    </ul>
+<% end %>

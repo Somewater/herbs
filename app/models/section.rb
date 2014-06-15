@@ -3,15 +3,17 @@ class Section < ActiveRecord::Base
   MAIN_NAME = 'main'
   ORDER = "weight ASC"
   CONDITIONS = 'visible = TRUE'
+  PER_PAGE = 12
 
   extend ::I18nColumns::Model
   i18n_columns :title
 
-  attr_accessible :name, :weight, :visible, :parent_id, :description
+  attr_accessible :name, :weight, :visible, :parent_id, :description, :image_id
   belongs_to :parent, :class_name => 'Section'
   has_many :children, :class_name => 'Section', :foreign_key => 'parent_id', :order => Section::ORDER, :conditions => CONDITIONS
   has_many :text_pages
   has_many :products
+  belongs_to  :image, :class_name => 'Ckeditor::MainPagePicture'
 
   scope :herbs_sections, where(parent_id: Section.where(name: 'herbs').first).order('weight')
 
@@ -26,6 +28,7 @@ class Section < ActiveRecord::Base
       field :visible
       field :parent
       field :description
+      field :image
     end
   end
 
@@ -115,6 +118,6 @@ class Section < ActiveRecord::Base
   end
 
   def products_page(page, sort)
-    products.limit(21).offset(page.to_i).preload(:cost).sort_by{|p| (sort == 'asc' ? -1 : 1) * -p.cost.try(:cost).to_i }
+    products.limit(PER_PAGE).offset(page.to_i * PER_PAGE).preload(:cost).sort_by{|p| (sort == 'asc' ? -1 : 1) * -p.cost.try(:cost).to_i }
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140608172457) do
+ActiveRecord::Schema.define(:version => 20140615143310) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20140608172457) do
     t.boolean  "visible",     :default => true
     t.integer  "parent_id",   :default => 0
     t.text     "description"
+    t.integer  "image_id"
   end
 
   add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true

@@ -12,5 +12,5 @@ Herbs = {
         product: <%= {id: @product.id}.to_json.html_safe %>,
         product_costs: <%= @product.costs.map{|c| {id: c.id, cost: c.cost, amount: c.amount} }.to_json.html_safe %>,
     <% end %>
-    main_page_pictures: <%= Ckeditor::MainPagePicture.all.map{|p| p.url }.to_json.html_safe %>
+    main_page_pictures: <%= Section.herbs_sections.preload(:image).map{|s| s.image.try(:url)}.compact.to_json.html_safe %>
 }

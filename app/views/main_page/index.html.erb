@@ -10,7 +10,7 @@
             <div id="caruselWindow">
                 <ul>
                     <% main = Product.main_page.ordered.to_a; scale = [1, (6 / [main.size, 1].max.to_f).ceil].max; [main * scale].flatten.each do |product| %>
-                        <li><a href="<%= product_path product %>"><img src="<%= (product.image_main_page || product.image).try(:url) %>" alt=""/><%= product.title %><br><%= product.cost.cost %> р. / <%= product.cost.amount %> гр.</a></li>
+                        <li><a href="<%= product_path product %>"><img width="160" height="160" src="<%= (product.image_main_page || product.image).try(:url) %>" alt=""/><%= product.title %><br><%= product.cost.try(:cost).to_i %> р. / <%= product.cost.try(:amount).to_i %> гр.</a></li>
                     <% end %>
                 </ul>
             </div>

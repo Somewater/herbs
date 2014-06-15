@@ -265,7 +265,7 @@ h3 {
 }
 .s_web div {
     background-color: #0E3441;
-    width: 230px;
+    width: 260px;
     text-align: center;
     display: inline-block;
     height: 100%;
@@ -404,7 +404,7 @@ footer {
 }
 .categories {
     width: 273px;
-    background-image: url("/assets/images/bg_menu1.jpg");
+    /*background-image: url("/assets/images/bg_menu2.jpg");*/
     background-repeat: no-repeat;
     height: 461px;
     float: left;
@@ -420,7 +420,7 @@ footer {
     float: right;
 }
 .medical_collection article {
-    background: transparent url("/assets/images/bg_menu1.jpg") 100% 0 no-repeat;
+    /*background: transparent url("/assets/images/bg_menu1.jpg") 100% 0 no-repeat;*/
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -723,3 +723,9 @@ footer {
 .logo_title h1 { font: 27px/26px Arial; }
 .logo_title h2 { font: 21px/30px Arial; }
 .logo_title h3 { font: 16px/28px Arial; }
+.pager li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
