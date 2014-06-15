@@ -14,17 +14,17 @@
                                 <% if @product.short_description.present? %>
                                     <p><%= @product.short_description %></p>
                                 <% end %>
-                                <div class="order">
+                                <div id="basket-btn-block" class="order">
                                     <form action="#" class="quant">
-                                        <input type="text" maxlength="2" value="00"/>
+                                        <input type="text" maxlength="2" value="01"/>
                                         <div class="plus_minus">
-                                            <input type="button" value="+"/>
-                                            <input type="button" value="-"/>
+                                            <input class="plus" type="button" value="+"/>
+                                            <input class="minus" type="button" value="-"/>
                                         </div>
                                     </form>
-                                    <div id="basket-btn-block" class="cost">
-                                        <span><strong>00 000 р.</strong> / 000 гр.</span>
-                                        <a href=""><img src="/assets/images/basket_mini.png" alt=""/></a>
+                                    <div class="cost">
+                                        <span id="cost-tablo"><strong>00 000 р.</strong> / 000 гр.</span>
+                                        <a id="basket-block-btn" href="#"><img src="/assets/images/basket_mini.png" alt=""/></a>
                                     </div>
                                 </div>
                             </div>

@@ -11,6 +11,7 @@ Herbs = {
     <% if @product %>
         product: <%= {id: @product.id}.to_json.html_safe %>,
         product_costs: <%= @product.costs.map{|c| {id: c.id, cost: c.cost, amount: c.amount} }.to_json.html_safe %>,
+        product_selected_cost_idx: 0,
     <% end %>
     main_page_pictures: <%= Section.herbs_sections.preload(:image).map{|s| s.image.try(:url)}.compact.to_json.html_safe %>
 }
