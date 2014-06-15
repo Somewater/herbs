@@ -617,7 +617,7 @@ footer {
     width: 659px;
 }
 .product_head {
-    background: url("/assets/images/bg_menu1.jpg")100% 0 no-repeat;
+    /*background: url("/assets/images/bg_menu1.jpg")100% 0 no-repeat;*/
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;

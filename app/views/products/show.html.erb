@@ -3,7 +3,7 @@
                         <%= render 'shared/main_menu' %>
                     </div>
                     <section class="product_info">
-                        <header class="product_head">
+                        <header class="product_head" style="background: url(<%= @product.section.try(:image).try(:url) || '/assets/images/bg_menu1.jpg' %>)100% 0 no-repeat;">
                             <p><%= @product.title %></p>
                         </header>
                         <div class="product_photo">
