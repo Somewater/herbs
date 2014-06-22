@@ -1,5 +1,5 @@
 				<div id="content" class="center_place no_bg">
-                    <div class="categories">
+                    <div class="categories" style="background-image: url(<%= @section.image.try(:url) || '/assets/images/bg_menu1.jpg' %>);">
                         <%= render 'shared/main_menu' %>
                     </div>
                     <section class="product_info">
