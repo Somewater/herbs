@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :reload_settings
-  before_filter :set_cloud_style
+  before_filter :assign_cloud_style
   before_filter :create_basket
 
   private
@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     Setting.reload
   end
 
-  def set_cloud_style
-    @cloud_style = true
+  def assign_cloud_style
+    @cloud_style = false
   end
 
   def create_basket
