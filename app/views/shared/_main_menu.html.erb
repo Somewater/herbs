@@ -1,7 +1,7 @@
 <div class="container"></div>
 <ul class="category_list">
     <% Section.herbs_sections.each do |section| %>
-        <% if defined?(@section) && @section && @section.id == section.id %>
+        <% if defined?(@section) && @section && (@section.id == section.id || @section.parent_id == section.id) %>
             <li><a class="frst_link" href="<%= section_path(section) %>"><%= section.title %></a></li>
         <% else %>
             <li><a href="<%= section_path(section) %>"><%= section.title %></a></li>

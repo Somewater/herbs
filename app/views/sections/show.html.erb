@@ -25,6 +25,13 @@
                 <% end %>
             </div>
         </article>
+        <% if @section.children.exists? %>
+            <% @section.children.each do |child| %>
+                <div class="section_name">
+                    <p><a href="<%= section_path(child) %>"><%= child.title %></a></p>
+                </div>
+            <% end %>
+        <% end %>
         <%= render 'products/collection' %>
     </div>
 </div>

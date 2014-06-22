@@ -38,7 +38,23 @@ class Product < ActiveRecord::Base
         end
         field :section do
           associated_collection_scope do
-            Proc.new { Section.find_by_name('herbs').children }
+            Proc.new {
+              Section.where <<-SQL
+sections.id IN (
+	WITH RECURSIVE search_tree(id, path) AS (
+	  SELECT id, ARRAY[id]
+	  FROM sections
+	  WHERE name = 'herbs'
+	UNION ALL
+	  SELECT sections.id, path || sections.id
+	  FROM search_tree
+	  JOIN sections ON sections.parent_id = search_tree.id
+	  WHERE NOT sections.id = ANY(path)
+	)
+	SELECT id FROM search_tree ORDER BY path
+) AND sections.name != 'herbs'
+              SQL
+            }
           end
         end
         field :main_page

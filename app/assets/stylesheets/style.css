@@ -729,3 +729,8 @@ footer {
     list-style-type: none;
     padding-right: 20px;
 }
+.section_name{
+    color: #0e3441;
+    font: 16px/16px Arial;
+    margin-bottom: 13px;
+}
