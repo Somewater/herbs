@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :reload_settings
   before_filter :set_cloud_style
+  before_filter :create_basket
 
   private
   def reload_settings
@@ -12,5 +13,9 @@ class ApplicationController < ActionController::Base
 
   def set_cloud_style
     @cloud_style = true
+  end
+
+  def create_basket
+    @basket = Basket.new(session)
   end
 end

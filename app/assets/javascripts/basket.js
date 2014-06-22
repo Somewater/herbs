@@ -6,17 +6,20 @@ function add_callback_to_basket_bnts(){
         if(action == 'add'){
             $.get(Herbs.basket_add, {product_id: btn.data('product-id'),cost_id: btn.data('cost-id'),quantity:1,render: render}, function(response){
                 $('#basket-menu-item').addClass('alert-info')
-                if(render) render_basket(response)
+                if(render) render_basket(response.body)
+                render_mini_basket(response.mini_basket)
             });
             event.preventDefault()
         } else if(action == 'remove') {
             $.get(Herbs.basket_remove, {product_id: btn.data('product-id'),cost_id: btn.data('cost-id'),quantity:1,render: render}, function(response){
-                if(render) render_basket(response)
+                if(render) render_basket(response.body)
+                render_mini_basket(response.mini_basket)
             });
         } else if(action == 'clear') {
             $.get(Herbs.basket_clear, {render: render}, function(response){
                 $('#basket-menu-item').removeClass('alert-info')
-                if(render) render_basket(response)
+                if(render) render_basket(response.body)
+                render_mini_basket(response.mini_basket)
             });
         }
     })
@@ -56,6 +59,9 @@ function set_selected_costs_index(index){
 function render_basket(basket_html){
     $('#basket-show').html(basket_html)
     add_callback_to_basket_bnts()
+}
+function render_mini_basket(text){
+    $('#mini_basket').text(text)
 }
 $(function(){
     add_callback_to_basket_bnts();

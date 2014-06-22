@@ -47,7 +47,7 @@
                             <input type="submit" value=""/>
                         </form>
                     </nav>
-                    <a href="<%= basket_show_path %>" class="basket"><img src="/assets/images/basket2.png" alt=""/>Корзина</a>
+                    <a href="<%= basket_show_path %>" class="basket"><img src="/assets/images/basket2.png" alt=""/><span id="mini_basket"><%= render_mini_basket %></span></a>
 				</div>
                 <div>
                     <% unless notice.blank? %>

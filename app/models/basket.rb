@@ -66,6 +66,26 @@ class Basket
     order
   end
 
+  def sum_quantity
+    sum = 0
+    @basket.each do |product_id, costs|
+      costs.each do |cost_id, quantity|
+        sum += quantity
+      end
+    end
+    sum
+  end
+
+  def sum_cost
+    sum = 0
+    @basket.each do |product_id, costs|
+      costs.each do |cost_id, quantity|
+        sum += ProductCost.find(cost_id).cost * quantity
+      end
+    end
+    sum
+  end
+
   def self.present?(session)
     JSON.load(session[BASKET]).present?
   end

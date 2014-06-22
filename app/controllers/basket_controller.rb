@@ -1,7 +1,6 @@
 class BasketController < ApplicationController
 
   attr_reader :basket
-  before_filter :create_basket
 
   include ApplicationHelper
 
@@ -60,15 +59,16 @@ class BasketController < ApplicationController
   end
 
   private
-  def create_basket
-    @basket = Basket.new(session)
-  end
-
   def render_response
     if params[:render].to_s[0] == 't'
-      render :show, layout: false
+      render json: {
+          body: render_to_string(:show, layout: false),
+          mini_basket: render_mini_basket
+      }
     else
-      head :ok
+      render json: {
+          mini_basket: render_mini_basket
+      }
     end
   end
 end

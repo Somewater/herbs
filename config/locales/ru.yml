@@ -34,6 +34,8 @@ ru:
         database_dump: Загрузить копию базы данных
   sitemap: Карта сайта
   basket:
+    basket: Корзина
+    mini_basket_text: Корзина %{cost} р.
     order_assepted: Ваш заказ принят
     basket_empty_error: Корзина пуста
   email:

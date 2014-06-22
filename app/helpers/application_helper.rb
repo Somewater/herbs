@@ -52,4 +52,12 @@ module ApplicationHelper
   def price_list_xls_url
     '/files/price.xls'
   end
+
+  def render_mini_basket
+    if !(defined? @basket) || @basket.empty?
+      t('basket.basket')
+    else
+      t('basket.mini_basket_text', cost: @basket.sum_cost)
+    end
+  end
 end
