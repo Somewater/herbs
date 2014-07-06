@@ -118,6 +118,6 @@ class Section < ActiveRecord::Base
   end
 
   def products_page(page, sort)
-    products.limit(PER_PAGE).offset(page.to_i * PER_PAGE).preload(:cost).sort_by{|p| (sort == 'asc' ? -1 : 1) * -p.cost.try(:cost).to_i }
+    products.order('priority DESC').limit(PER_PAGE).offset(page.to_i * PER_PAGE).preload(:cost).sort_by{|p| (sort == 'asc' ? -1 : 1) * -p.cost.try(:cost).to_i }
   end
 end
